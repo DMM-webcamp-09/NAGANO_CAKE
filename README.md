@@ -2,22 +2,25 @@
 
 # 概要
 
-DMM WEBCAMPのチーム開発課題です。 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトを開発しました。
+DMM WEBCAMPのチーム開発課題です。 
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトを開発しました。
 
-* Ruby version
+# 実装機能
 
-* System dependencies
+会員側
 
-* Configuration
+* ログイン/新規登録機能
 
-* Database creation
+* 会員情報編集/退会機能
 
-* Database initialization
+* 配送先登録/編集機能
 
-* How to run the test suite
+* 商品一覧/詳細表示機能
 
-* Services (job queues, cache servers, search engines, etc.)
+* カート機能
 
-* Deployment instructions
+* カート内編集機能
 
-* ...
+* 注文情報確認表示機能
+
+* 注文情報一覧/詳細表示機能
