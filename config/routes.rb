@@ -3,13 +3,16 @@ Rails.application.routes.draw do
     
 # 管理者用
 # URL /admin/sign_in ...
-
+get 'products/index'
+get 'products/show'
   
-  devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-     registrations: 'admin/registrations'
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+  
+  
   }   
+  
+  
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
