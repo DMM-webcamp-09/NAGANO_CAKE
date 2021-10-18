@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  # resources :login
   
-    
-# 管理者用
-# URL /admin/sign_in ...
-get 'products/index'
-get 'products/show'
+  end
   
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-  
-  
+  devise_for :admin, controllers: {
+  sessions: "admin/sessions" ,
+  passwords: 'admin/passwords',
+  registrations: 'admin/registrations'
   }   
+
+
+    
+    get 'products/index'
+    get 'products/show'
   
-  
+
 
   namespace :member do
     get 'products/index'
@@ -22,24 +25,13 @@ get 'products/show'
   registrations: "members/registrations",
   sessions: 'members/sessions'
 }
-   
+
+
   get 'members/products/index'
   get 'products/show'
 
-
-
   get 'products/index'
   get 'products/show'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-
-
- }
-
-end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  end
