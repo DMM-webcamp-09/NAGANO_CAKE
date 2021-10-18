@@ -1,24 +1,44 @@
-# README
+# Nagano Cake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+DMM WEBCAMPのチーム開発課題です。   
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトを開発しました。
 
-* Ruby version
+## 実装機能
 
-* System dependencies
+### 会員側
 
-* Configuration
+* 会員登録/退会機能
 
-* Database creation
+* 会員ログイン/ログアウト機能
 
-* Database initialization
+* 会員情報編集機能
 
-* How to run the test suite
+* 配送先登録/編集機能
 
-* Services (job queues, cache servers, search engines, etc.)
+* 商品一覧/詳細表示機能
 
-* Deployment instructions
+* カート内に商品追加、カート内商品の一覧表示機能
 
-* ...
+* カート内編集機能
+
+* 注文情報確認表示機能
+
+* 注文履歴一覧/注文履歴詳細表示機能
+
+### 管理者側
+
+* 管理者ログイン/ログアウト機能
+
+* 注文履歴の一覧/詳細表示機能
+
+* 会員一覧/詳細表示機能
+
+* 商品一覧/詳細表示機能
+
+* 商品情報追加/変更機能
+
+* 商品のジャンル設定機能
+
+* 注文ステータス/製作ステータス更新機能
