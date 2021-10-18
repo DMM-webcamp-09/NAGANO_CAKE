@@ -1,4 +1,4 @@
-class Members::ProductsController < ApplicationController
+class Member::ProductsController < ApplicationController
   def index
   end
 
