@@ -64,6 +64,7 @@ class Member::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+<<<<<<< HEAD:app/controllers/member/registrations_controller.rb
     @member = Menber.new(member_params)
     @member.save
     redirect_to products_index_path
@@ -73,5 +74,16 @@ class Member::RegistrationsController < Devise::RegistrationsController
 
   def member_params
     params.require(:member).permit(:email, :password)
+=======
+    @member = Member.new(member_params)
+    @member.save
+    redirect_to products_path
+>>>>>>> develop:app/controllers/members/registrations_controller.rb
   end
+  
+  private
+  def member_params
+    params.require(:member).permit(:email, :password, :password_confirmation)
+  end
+  
 end
