@@ -1,21 +1,28 @@
 class Admin::MembersController < ApplicationController
     
   def index
-  @menbers = Menber.all
+  @members = Member.all
   end
   
   def show
-  @menbers = Menber.find(params[:id])
+  @member = Member.find(params[:id])
   end
   
   def edi
-  @menbers = Menber.find(params[:id])
+  @member = Member.find(params[:id])
   end
   
   def update
-  @menbers = Menber.find(params[:id])
+  @member = Member.find(params[:id])
   @member.update(member_paramas)
-  redirect_to admin_member_path(@menber.id)
+  redirect_to admin_member_path(@member.id)
   end
+  
+  private
+  def member_paramas
+    params.require(:member).permit(:first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:phone_number,:email,:address,:is_deleted)
+  end
+    
+ 
   
 end

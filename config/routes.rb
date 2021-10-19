@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
   namespace :admin do
-  # resources :login
-  
+    resources :members, only: [:index, :show, :edit, :update]
+    resources :orders, only: [ :show, :update] do
+      resources :order_produts, only: [ :update]
+    end
+    resources :products
+    resources :genres, only: [:index, :create, :edit, :update]
   end
   
   devise_for :admin, controllers: {
   sessions: "admin/sessions" ,
   passwords: 'admin/passwords',
   registrations: 'admin/registrations'
-  }   
-
-
-    
+  } 
+  
     get 'products/index'
     get 'products/show'
     get 'menbers/index'
-    resources :members, only: [:index, :show, :edit, :update]
-    resources :orders, only: [ :show, :update] do
-   end
+
 
   namespace :member do
     get 'products/index'
