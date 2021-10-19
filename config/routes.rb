@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     
     get 'products/index'
     get 'products/show'
-  
-
+    get 'menbers/index'
+    resources :members, only: [:index, :show, :edit, :update]
+    resources :orders, only: [ :show, :update] do
+   end
 
   namespace :member do
     get 'products/index'
