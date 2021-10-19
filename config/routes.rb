@@ -25,14 +25,14 @@ namespace :admin do
 
 
 
-  namespace :member do
-    get 'products/index'
-    get 'products/show'
+  scope module: :member do
+    resources :products, only: [:index, :show]
   end
- devise_for :members,skip: [:passwords,], controllers: {
-  registrations: "members/registrations",
-  sessions: 'members/sessions'
+ devise_for :member,skip: [:passwords,], controllers: {
+  registrations: "member/registrations",
+  sessions: 'member/sessions'
 }
+
 
   get 'members/products/index'
   get 'products/show'
@@ -41,4 +41,14 @@ namespace :admin do
 
   get 'products/index'
   get 'products/show'
+
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+ }
+
 end
+
+ 

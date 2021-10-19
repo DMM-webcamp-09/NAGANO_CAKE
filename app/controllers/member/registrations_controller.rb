@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Members::RegistrationsController < Devise::RegistrationsController
+class Member::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -60,8 +60,18 @@ class Members::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def new
+    @member = Member.new
   end
   
   def create
+    @member = Member.new(member_params)
+    @member.save
+    redirect_to products_path
   end
+  
+  private
+  def member_params
+    params.require(:member).permit(:email, :password, :password_confirmation)
+  end
+  
 end
