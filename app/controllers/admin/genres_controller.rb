@@ -7,11 +7,14 @@ end
 
  def create
   @genre = Genre.new(genre_params)
+
     if @genre.save
       redirect_to admin_genres_path
     else
-      flash[:genre_error] = "ジャンル名を入力してください"
-    redirect_to
+      flash.now[:alert] = "ジャンル名を入力してください"
+      redirect_to
+
+
     end
  end
 
