@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 管理者用
 # URL /admin/sign_in ...
 
@@ -34,6 +35,7 @@ namespace :admin do
     get 'members/unsubscribe'
     patch 'members/update'
     patch 'members/withdraw'
-  end
+    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
 
+  end
 end

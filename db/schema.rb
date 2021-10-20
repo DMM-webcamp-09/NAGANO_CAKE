@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(version: 2021_10_19_082211) do
 
   create_table "shipping_addresses", force: :cascade do |t|
     t.integer "member_id"
+    t.string "name"
     t.string "postal_code"
     t.string "address"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
