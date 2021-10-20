@@ -20,12 +20,12 @@ namespace :admin do
 
 
   root 'member/homes#top'
-  
+
   devise_for :member,skip: [:passwords,], controllers: {
   registrations: "member/registrations",
   sessions: 'member/sessions'
 }
-    
+
   scope module: :member do
     resources :products, only: [:index, :show]
     get 'homes/about'
