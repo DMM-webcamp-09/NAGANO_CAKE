@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-8 offset-md-1">
               <p>商品名：<%= @product.name %></p>
-              <p>商品説明：<%= @product.descript %></p>
+              <p>商品説明：<%= @product.introduction %></p>
               <p>ジャンル：<%= @product.genre.name %></p>
               <p>税抜価格：<%= @product.price.to_s(:delimited, delimiter: ',') %>円</p>
               <p>(税込価格):<%= (@product.price*1.08).round.to_s(:delimited, delimiter: ',') %>円</p>
