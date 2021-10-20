@@ -2,12 +2,12 @@
 
 one:
   member_id: 1
+  name: MyString
   postal_code: MyString
   address: MyString
-  name: MyString
 
 two:
   member_id: 1
+  name: MyString
   postal_code: MyString
   address: MyString
-  name: MyString
