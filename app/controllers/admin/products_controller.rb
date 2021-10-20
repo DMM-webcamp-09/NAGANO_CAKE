@@ -25,15 +25,16 @@ class Admin::ProductsController < ApplicationController
 
  def new
   @product = Product.new
+
  end
 
  def create
   @product = Product.new(product_params)
   if @product.save
-      redirect_to admin_product_path(@product)
+
+      redirect_to admin_product_path(@product.id)
   else
-      flash[:error] = "入力してください"
-      redirect_to new_admin_product_path
+      render action: :new, danger: '登録に失敗しました'
   end
  end
 
@@ -42,7 +43,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:genre_id, :name, :descript, :is_active, :product_image, :product_price, :created_at, :updated_at)
+    params.require(:product).permit(:genre_id, :name, :introduction, :is_active, :image, :price )
   end
 
 end
