@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :members, only: [:index, :show, :edit, :update]
-    resources :orders, only: [ :show, :update] do
+    resources :orders, only: [ :index, :show, :update] do
       resources :order_produts, only: [ :update]
     end
     resources :products
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'menbers/index'
 
 
+
   namespace :member do
     get 'products/index'
     get 'products/show'
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   sessions: 'members/sessions'
 }
 
-
+  get 'homes/about'
   get 'members/products/index'
   get 'products/show'
 
