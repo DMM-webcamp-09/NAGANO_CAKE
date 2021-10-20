@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-<<<<<<< HEAD
+
  
  def show
    @order = Order.find(params[:id])
@@ -26,6 +26,6 @@ class Admin::OrdersController < ApplicationController
   end 
  
 
-=======
->>>>>>> origin/develop
+
+
 end

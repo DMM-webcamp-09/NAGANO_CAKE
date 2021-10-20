@@ -6,4 +6,3 @@ class AdminhomesController < ApplicationController
  
 end
 
-# テスト
