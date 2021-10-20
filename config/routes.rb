@@ -36,6 +36,6 @@ namespace :admin do
     patch 'members/update'
     patch 'members/withdraw'
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
-  end
 
+  end
 end
