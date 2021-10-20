@@ -5,3 +5,5 @@ class AdminhomesController < ApplicationController
  end
  
 end
+
+# テスト
