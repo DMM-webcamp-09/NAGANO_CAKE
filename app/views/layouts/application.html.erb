@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NAGANO CAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <% if member_signed_in? %>
+                <li class="">
+                <%= link_to homes_about_path, class:"btn btn-link" do %>
+                 About
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to products_path, class:"btn btn-link" do %>
+                商品一覧
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to new_member_registration_path, class:"btn btn-link" do %>
+                新規登録
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to destroy_member_session_path, method: :delete, class:"btn btn-link" do %>
+                ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li class="">
+             <%= link_to homes_about_path, class:"btn btn-link" do %>
+                 About
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to products_path, class:"btn btn-link" do %>
+                商品一覧
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to new_member_registration_path, class:"btn btn-link" do %>
+                新規登録
+                <% end %>
+              </li>
+              <li class="">
+                <%= link_to new_member_session_path, class:"btn btn-link" do %>
+                ログイン
+                <% end %>
+              </li>
+              <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
