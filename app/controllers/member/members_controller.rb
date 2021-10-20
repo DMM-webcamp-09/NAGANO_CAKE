@@ -1,11 +1,11 @@
 class Member::MembersController < ApplicationController
-  
+
   def show
   end
 
   def edit
   end
-  
+
   def update
   end
 
@@ -20,4 +20,5 @@ class Member::MembersController < ApplicationController
     redirect_to root_path
   end
   
+
 end

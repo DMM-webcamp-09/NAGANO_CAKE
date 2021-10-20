@@ -37,5 +37,3 @@ namespace :admin do
   end
 
 end
-
- 
