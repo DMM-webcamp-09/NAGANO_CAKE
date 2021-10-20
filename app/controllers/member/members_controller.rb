@@ -1,4 +1,5 @@
 class Member::MembersController < ApplicationController
+
   def show
   end
 
@@ -11,11 +12,13 @@ class Member::MembersController < ApplicationController
   def unsubscribe
     @member = Member.find_by(email: params[:email])
   end
-
-  def withdrow
+  
+  def withdraw
     @member = current_member
     @member.update(is_deleted: true)
-    redirect_to products_path
+    reset_session
+    redirect_to root_path
   end
+  
 
 end

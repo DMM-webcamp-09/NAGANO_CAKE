@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 # 管理者用
 # URL /admin/sign_in ...
 
@@ -12,33 +13,27 @@ namespace :admin do
     root to: 'homes#top'
   end
 
-
-
-
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
-
+  sessions: "admin/sessions"
   }
 
 
 
   root 'member/homes#top'
+  
+  devise_for :member,skip: [:passwords,], controllers: {
+  registrations: "member/registrations",
+  sessions: 'member/sessions'
+}
+    
   scope module: :member do
     resources :products, only: [:index, :show]
     get 'homes/about'
     get 'members/show'
     get 'members/edit'
-    patch 'members/update'
     get 'members/unsubscribe'
+    patch 'members/update'
     patch 'members/withdraw'
-
   end
-
-
- devise_for :member,skip: [:passwords,], controllers: {
-  registrations: "member/registrations",
-  sessions: 'member/sessions'
-}
-
 
 end

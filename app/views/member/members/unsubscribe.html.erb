@@ -5,6 +5,6 @@
   </div>
   <div>
     <%= link_to '退会しない', root_path %>
-    <%= link_to "退会する", withdraw_user_path(@member) %>
+    <%= link_to "退会する", members_withdraw_path(@member), method: :patch %>
   </div>
 </div>
