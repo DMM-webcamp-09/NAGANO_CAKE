@@ -34,6 +34,6 @@ namespace :admin do
     get 'members/unsubscribe'
     patch 'members/update'
     patch 'members/withdraw'
+    
   end
-
 end
