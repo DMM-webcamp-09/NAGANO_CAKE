@@ -1,0 +1,45 @@
+ <tr>
+              <th>会員ID</th>
+              <td><%= @members.id %></td>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= @members.last_name %> <%= @members.first_name %></td>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <td><%= @members.last_name_kana %> <%= @members.first_name_kana %></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= @members.postal_code %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @members.address %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= @members.phone_number %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @members.email %></td>
+            </tr>
+            <tr>
+              <th>会員ステータス</th>
+              <td>
+                <% if @members.is_valid == true %>
+                  <p class="text-success">有効</p>
+                <% else %>
+                  <p class="text-secondary">退会</p>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td>
+                <%= link_to "編集する", edit_admin_member_path, class: "btn mr-5 btn-dark" %>
+                <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-dark" %>
+              </td>
+            </tr>
