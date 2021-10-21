@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 # 管理者用
 # URL /admin/sign_in ...
 
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions",
+
+ }
+
+
 namespace :admin do
     get 'top' => 'homes#top'
     resources :members, only:[:index, :show, :edit, :update]
@@ -12,34 +18,14 @@ namespace :admin do
     resources :order_details, only: [:update]
   end
 
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-  }
-<<<<<<< HEAD
 
-end
-
-
-
-
-
-
-=======
-  
->>>>>>> origin/develop
 
   root 'member/homes#top'
 
-<<<<<<< HEAD
-
-
-
-
-=======
   devise_for :member,skip: [:passwords,], controllers: {
   registrations: "member/registrations",
   sessions: 'member/sessions'
-}
+  }
 
   scope module: :member do
     resources :products, only: [:index, :show]
@@ -50,8 +36,9 @@ end
     patch 'members/update'
     patch 'members/withdraw'
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :products, only: [:index, :show]
   end
-  
+
 end
->>>>>>> origin/develop
+
 

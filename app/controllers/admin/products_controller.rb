@@ -41,6 +41,7 @@ class Admin::ProductsController < ApplicationController
 
  def destroy
  end
+
   private
 
   def product_params
