@@ -1,35 +1,43 @@
- <tr>
+ <div class="container">
+    <div class="row">
+      <div class="admin-heading col-12">
+        <h2 class="mb-4 pt-3 pb-3 text-center"><%= "#{@member.last_name}""#{@member.first_name}" %>様 会員詳細</h2>
+      </div>
+      <div class="col-8 mx-auto mb-5 admin-customer-show">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
               <th>会員ID</th>
-              <td><%= @members.id %></td>
+              <td><%= @member.id %></td>
             </tr>
             <tr>
               <th>氏名</th>
-              <td><%= @members.last_name %> <%= @members.first_name %></td>
+              <td><%= @member.last_name %> <%= @member.first_name %></td>
             </tr>
             <tr>
               <th>フリガナ</th>
-              <td><%= @members.last_name_kana %> <%= @members.first_name_kana %></td>
+              <td><%= @member.last_name_kana %> <%= @member.first_name_kana %></td>
             </tr>
             <tr>
               <th>郵便番号</th>
-              <td><%= @members.postal_code %></td>
+              <td><%= @member.postal_code %></td>
             </tr>
             <tr>
               <th>住所</th>
-              <td><%= @members.address %></td>
+              <td><%= @member.address %></td>
             </tr>
             <tr>
               <th>電話番号</th>
-              <td><%= @members.phone_number %></td>
+              <td><%= @member.phone_number %></td>
             </tr>
             <tr>
               <th>メールアドレス</th>
-              <td><%= @members.email %></td>
+              <td><%= @member.email %></td>
             </tr>
             <tr>
               <th>会員ステータス</th>
               <td>
-                <% if @members.is_valid == true %>
+                <% if @member.is_deleted == true %>
                   <p class="text-success">有効</p>
                 <% else %>
                   <p class="text-secondary">退会</p>
@@ -40,6 +48,11 @@
               <th></th>
               <td>
                 <%= link_to "編集する", edit_admin_member_path, class: "btn mr-5 btn-dark" %>
-                <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-dark" %>
+                <%= link_to "注文履歴一覧", admin_order_detail_path, class: "btn btn-dark" %>
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
