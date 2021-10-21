@@ -7,7 +7,7 @@
       <h4><strong><%= @product.name %></strong></h4>
       <p><%= @product.introduction%></p>
       <h6>
-        <% tax_in = @product.price * 1.10 %>
+        <% tax_in = (@product.price * 1.10).round %>
           ¥<%= tax_in.to_s(:delimited) %>(税込)
       </h6>
     </div>

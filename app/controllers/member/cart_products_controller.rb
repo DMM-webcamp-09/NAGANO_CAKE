@@ -16,20 +16,20 @@ class Member::CartProductsController < ApplicationController
   end
 
   def destroy_all
-    @cart_products = current_customer.cart_products
+    @cart_products = current_member.cart_products
     @cart_products.destroy_all
     redirect_to cart_products_path
   end
 
   def create
-    @cart_product = current_customer.cart_products.new(cart_product_params)
+    @cart_product = current_member.cart_products.new(cart_product_params)
     @cart_product.save
     redirect_to cart_products_path
   end
 
   private
   def cart_product_params
-    params.require(:cart_product).permit(:product_id, :customer_id, :amount)
+    params.require(:cart_product).permit(:product_id, :member_id, :amount)
   end
 
 end
