@@ -1,10 +1,10 @@
        <div class="admin-customer-edit col-10 p-3">
-        <%= form_with model:@member, url: admin_member_path, local: true do |f| %>
+        <%= form_with model:@member, url: admin_member_path, method: :patch, local: true do |f| %>
         <table class="table table-borderless">
           <tbody>
             <tr>
               <th>会員ID</th>
-              <td><%= @member.id %></td>
+              <td><%= @members_id %></td>
             </tr>
             <tr>
               <th>氏名</th>
@@ -16,7 +16,7 @@
             </tr>
             <tr>
               <th>郵便番号</th>
-              <td><%= f.text_field :postcode, class: "admin-member-editform pt-1 pb-1 rounded-pill" %></td>
+              <td><%= f.text_field :postal_code, class: "admin-member-editform pt-1 pb-1 rounded-pill" %></td>
             </tr>
             <tr>
               <th>住所</th>
