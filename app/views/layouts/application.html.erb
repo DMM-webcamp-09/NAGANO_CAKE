@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NAGANO CAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+   <body>
+  
     <header>
       <% if member_signed_in? %>
                 <li>
@@ -54,6 +55,16 @@
               </li>
               <% end %>
     </header>
-    <%= yield %>
-  </body>
+    
+    <main>
+      <%= yield %>
+    </main>
+    
+    <footer class="footer">
+      <div class="navbar navbar-expand-lg navbar-light bg-secondary" style="height: 100px;">
+      <p class="text-white mx-auto ">©︎2021 SummerTomato</p>
+      </div>
+    </footer>
+    
+    </body>
 </html>

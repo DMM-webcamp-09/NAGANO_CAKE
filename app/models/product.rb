@@ -1,13 +1,12 @@
 class Product < ApplicationRecord
   belongs_to :genre
-  has_many :orders, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   has_many :cart_products, dependent: :destroy
-  attachment :product_image
-
-  validates :name, {presence: true}
-  validates :descript, {presence: true}
-  validates :product_price, {presence: true}
-
+  attachment :image
+  
+  def add_tax_price
+    (self.price * 1.10).round
+  end
 
 
 end
