@@ -10,7 +10,7 @@ class Member::OrdersController < ApplicationController
     @cart_products = current_member.cart_products
         @order = Order.new(order_params)
         @order.postage = 800
-        @order.payment_method = params[:order][:payment_method]
+        #@order.payment_method = params[:order][:payment_method]
 
         #ラジオボタンで選択した時の取得する情報の条件分岐、enumではなくnew.html.erbで0,1,2を振り分けている
         if params[:order][:address_num] == "0"

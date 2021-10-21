@@ -5,15 +5,15 @@
           <h4 class="mb-4 text-color col-4 text-center ml-5 pb-2 pt-2 rounded-pill">注文情報入力</h4>
 
 
-          <%= form_with(model:@order, url: orders_confirm_path, local: true) do |f| %>
+          <%= form_with(model:@order, url: orders_confirm_path, method: :post, local: true) do |f| %>
           <div class="field">
             <span class="font-weight-bold">支払い方法</span><br>
 
             <div class="form-check mt-3">
-                <%= f.radio_button :payment_method,:クレジットカード,  checked: "checked" %>
+                <%= f.radio_button :payment_method,:credit_card,  checked: "checked" %>
                 <%= f.label :payment_method, "クレジットカード" %>
                 <br>
-                <%= f.radio_button :payment_method, :銀行振込 %>
+                <%= f.radio_button :payment_method, :transfer %>
                 <%= f.label :payment_method, "銀行振込" %>
             </div>
           </div>

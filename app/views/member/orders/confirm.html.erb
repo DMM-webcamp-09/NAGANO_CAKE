@@ -31,7 +31,7 @@
            <table class="table table-bordered border-dark col-2 mb-3 ml-5 h-75">
               <tr>
                   <th class="table-active">送料</th>
-                  <td><%= @order.shipping_fee %></td>
+                  <td><%= @order.postage %></td>
               </tr>
               <tr>
                   <th class="table-active table-color">商品合計</th>
@@ -39,7 +39,7 @@
               </tr>
               <tr>
                   <th class="table-active">請求金額</th>
-                  <td><%= @order.shipping_fee + @sum %></td>
+                  <td><%= @order.postage + @sum %></td>
               </tr>
            </table>
         </div>
@@ -54,7 +54,7 @@
 
           <div class="address_info row mb-3">
               <h5 class="font-weight-bold">お届け先　　</h5>
-              <span>〒</span><%= @order.postcode %>　<%= @order.address %><br><%= @order.name %>
+              <span>〒</span><%= @order.postal_code %>　<%= @order.address %><br><%= @order.name %>
               <br>
           </div>
           
@@ -72,7 +72,7 @@
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :shipping_fee %>
-        <%= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
+        <%= f.hidden_field :bill, value: @sum + @order.postage %>
         
           
           <br> <br><br><br> <%= f.submit "➡︎注文を確定する", class: "btn btn-primary col-5" %>
