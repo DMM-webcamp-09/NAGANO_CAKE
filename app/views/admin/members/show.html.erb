@@ -1,4 +1,12 @@
- <tr>
+ <div class="container">
+    <div class="row">
+      <div class="admin-heading col-12">
+        <h2 class="mb-4 pt-3 pb-3 text-center"><%= "#{@member.last_name}""#{@member.first_name}" %>様 会員詳細</h2>
+      </div>
+      <div class="col-8 mx-auto mb-5 admin-customer-show">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
               <th>会員ID</th>
               <td><%= @member.id %></td>
             </tr>
@@ -40,6 +48,11 @@
               <th></th>
               <td>
                 <%= link_to "編集する", edit_admin_member_path, class: "btn mr-5 btn-dark" %>
-                <%= link_to "注文履歴一覧を見る", admin_order_detail_path, class: "btn btn-dark" %>
+                <%= link_to "注文履歴一覧", admin_order_detail_path, class: "btn btn-dark" %>
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

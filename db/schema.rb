@@ -12,6 +12,12 @@
 
 
 
+<<<<<<< HEAD
+=======
+ActiveRecord::Schema.define(version: 2021_10_20_024422) do
+
+
+>>>>>>> origin/develop2
 
 ActiveRecord::Schema.define(version: 2021_10_20_071542) do
 
@@ -106,4 +112,5 @@ ActiveRecord::Schema.define(version: 2021_10_20_071542) do
     t.datetime "updated_at", null: false
   end
 
+end
 end
