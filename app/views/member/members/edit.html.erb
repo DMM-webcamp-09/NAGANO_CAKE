@@ -1,2 +1,43 @@
-<h1>Member::Members#edit</h1>
-<p>Find me in app/views/member/members/edit.html.erb</p>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+      <h4>会員情報編集</h4>
+
+        <%= form_with model:@member, url:members_update_path, method: :patch, local:true do |f| %>
+        <table class="table table-bordered border-dark col-6 mt-4 mb-5">
+            <tr>
+            <th>名前</th>
+            <th><%= f.text_field :last_name, autofocus: true %>
+            <%= f.text_field :first_name, autofocus: true %></th>
+            
+            <tr>
+            <th>フリガナ</th>
+            <th><%= f.text_field :last_name_kana, autofocus: true %>
+            <%= f.text_field :first_name_kana, autofocus: true %></th>
+            </tr>
+            
+            <tr>
+            <th>メールアドレス</th>
+            <th><%= f.email_field :email %></th>
+            </dtr>
+          
+            <tr>
+            <th>郵便番号</th>
+            <th><%= f.text_field :postal_code %></th>
+            </tr>
+          
+            <tr>
+            <th>住所</th>
+            <th><%= f.text_field :address %></th>
+            </tr>
+            
+            <tr>
+            <th>電話番号</th>
+            <th><%= f.text_field :phone_number %></th>
+            </tr>
+            </table>
+            <%= f.submit "編集内容を保存する", class: 'btn btn-success' %>
+            <%= link_to '退会する', members_unsubscribe_path,class: 'btn btn-danger' %>
+          </div>
+        <% end %>

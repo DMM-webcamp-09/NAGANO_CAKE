@@ -25,13 +25,23 @@ namespace :admin do
 end
 
 
+  root 'member/homes#top'
 
+  devise_for :member,skip: [:passwords,], controllers: {
+  registrations: "member/registrations",
+  sessions: 'member/sessions'
+}
 
+  scope module: :member do
+    resources :products, only: [:index, :show]
+    get 'homes/about'
+    get 'members/show'
+    get 'members/edit'
+    get 'members/unsubscribe'
+    patch 'members/update'
+    patch 'members/withdraw'
+    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
 
-  
-  
-   
-
-
-
+  end
+end
 

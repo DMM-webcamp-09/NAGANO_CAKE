@@ -3,7 +3,7 @@
 class Member::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :member_state, only: [:create]
-
+  
   # GET /resource/sign_in
   # def new
   #   super
@@ -26,6 +26,8 @@ class Member::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
+  
+  
   protected
   
   def member_state
@@ -38,5 +40,4 @@ class Member::SessionsController < Devise::SessionsController
     end
   end
   
-
 end
