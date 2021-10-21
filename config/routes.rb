@@ -15,7 +15,7 @@ namespace :admin do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
-  
+
 
   root 'member/homes#top'
 
@@ -34,9 +34,13 @@ namespace :admin do
     patch 'members/withdraw'
     resources :cart_products, only: [:index, :create, :update, :destroy]
     delete 'cart_products/destroy_all'
-    
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :orders, only: [:index, :show, :create]
+    get "orders/new" => "orders#new"
+    post "orders/confirm" => "orders#confirm"
+    get "orders/complete" => "orders#complete"
+
   end
-  
+
 end
 
