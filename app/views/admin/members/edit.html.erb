@@ -40,10 +40,10 @@
             <tr>
               <th>会員ステータス</th>
               <td>
-                <%= f.radio_button :is_valid, :true %>
-                <%= f.label :is_valid, "有効", value: true, class: "mr-3" %>
-                <%= f.radio_button :is_valid, :false %>
-                <%= f.label :is_valid, "退会", value: false %>
+                <%= f.radio_button :is_deleted, :true %>
+                <%= f.label :is_deleted, "有効", value: true, class: "mr-3" %>
+                <%= f.radio_button :is_deleted, :false %>
+                <%= f.label :is_deleted, "退会", value: false %>
               </td>
             </tr>
             <tr>
