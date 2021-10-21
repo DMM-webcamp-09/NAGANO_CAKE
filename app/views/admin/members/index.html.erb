@@ -17,10 +17,10 @@
           <% @members.each do |member| %>
           <tr>
             <td><%= member.id %></td>
-            <td><%= link_to "#{member.last_name} #{member.first_name}", admins_member_path(member.id), class: "text-dark border-bottom border-dark" %></td>
+            <td><%= link_to "#{member.last_name} #{member.first_name}", admin_member_path(member.id), class: "text-dark border-bottom border-dark" %></td>
             <td><%= member.email %></td>
             <td>
-              <% if member.is_valid == true %>
+              <% if member.is_deleted == true %>
                 <p class="text-success">有効</p>
               <% else %>
                 <p class="text-secondary">退会</p>
