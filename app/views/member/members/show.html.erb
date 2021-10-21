@@ -1,2 +1,44 @@
-<h1>Member::Members#show</h1>
-<p>Find me in app/views/member/members/show.html.erb</p>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        
+          <h4>マイページ</h4>
+          <h4>登録情報　<%= link_to "編集する", members_edit_path, class: 'btn btn-success' %></h4>
+      </div>
+          <table class="table table-bordered border-dark col-6 mt-4 mb-5">
+              <tr>
+                  <th>氏名</th>
+                  <th class="col-4"><%= @member.last_name %><%= @member.first_name %></th>
+              </tr>
+              <tr>
+                  <th>カナ</th>
+                  <th><%= @member.last_name_kana %><%= @member.first_name_kana %></th>
+              </tr>
+              <tr>
+                  <th>郵便番号</th>
+                  <th><%= @member.postal_code %></th>
+              </tr>
+              <tr>
+                  <th>住所</th>
+                  <th><%= @member.address %></th>
+              </tr>
+              <tr>
+                  <th>電話番号</th>
+                  <th><%= @member.phone_number %></th>
+              </tr>
+              <tr>
+                  <th>メールアドレス</th>
+                  <th><%= @member.email %></th>
+              </tr>
+          </table>
+          
+      <div class="col-12">
+          <h4>配送先   <%= link_to "一覧を見る", shipping_addresses_path %></h4>
+
+          <h4>注文履歴   <%= link_to "一覧を見る" %></h4>
+
+      </div>
+    </div>
+  </div>
+</body>
