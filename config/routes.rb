@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
 # 管理者用
 # URL /admin/sign_in ...
 
@@ -14,16 +12,10 @@ namespace :admin do
     resources :order_details, only: [:update]
   end
 
-
-
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
-
-
   }
-
-end
-
+  
 
   root 'member/homes#top'
 
@@ -40,8 +32,11 @@ end
     get 'members/unsubscribe'
     patch 'members/update'
     patch 'members/withdraw'
+    resources :cart_products, only: [:index, :create, :update, :destroy]
+    delete 'cart_products/destroy_all'
+    
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
-
   end
+  
 end
 
