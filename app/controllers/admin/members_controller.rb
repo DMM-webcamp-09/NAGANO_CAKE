@@ -8,7 +8,7 @@ class Admin::MembersController < ApplicationController
   @member = Member.find(params[:id])
   end
   
-  def edi
+  def edit
   @member = Member.find(params[:id])
   end
   
