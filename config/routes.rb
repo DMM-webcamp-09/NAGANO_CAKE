@@ -36,9 +36,10 @@ namespace :admin do
     delete 'cart_products/destroy_all'
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
     get "orders/new" => "orders#new"
-    resources :orders, only: [:index, :show, :create]
     post "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
+    resources :orders, only: [:index, :show, :create]
+    
 
   end
 
