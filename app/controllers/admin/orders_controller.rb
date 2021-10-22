@@ -1,14 +1,14 @@
 class Admin::OrdersController < ApplicationController
-    
+ before_action :authenticate_admin!
  def index
    @orders = Order.page(params[:page]).per(10).reverse_order
  end
- 
+
  def show
    @order = Order.find(params[:id])
    @order_products = @order.order_products
  end
- 
+
  def update
    @order = Order.find(params[:id])
    @order.update(order_params)
@@ -26,8 +26,8 @@ class Admin::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:status)
-  end 
- 
+  end
+
 
 
 
