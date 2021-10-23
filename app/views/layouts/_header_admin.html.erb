@@ -15,12 +15,6 @@
     <li>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
     </li>
-     <div class="search-form ">
-      <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword, value: @keyword %>
-        <%= f.submit "search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
    <% else %>
     <li>
       <%= link_to "商品一覧", products_path, class: "nav-link text-dark" %>
