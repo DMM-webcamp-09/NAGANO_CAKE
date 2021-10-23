@@ -12,7 +12,6 @@
 
 
 
-ActiveRecord::Schema.define(version: 2021_10_20_024422) do
 
 
 
@@ -110,8 +109,3 @@ ActiveRecord::Schema.define(version: 2021_10_20_071542) do
   end
 
 end
-<<<<<<< HEAD
-e
-=======
-end
->>>>>>> f88bab3ba3515c75bd35939da44b67cf658fcd16
