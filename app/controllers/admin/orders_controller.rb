@@ -1,5 +1,9 @@
 class Admin::OrdersController < ApplicationController
 
+ before_action :authenticate_admin!
+
+
+
  def index
    @orders = Order.page(params[:page]).per(10).reverse_order
  end
@@ -21,7 +25,7 @@ puts "============="
         order_product.maiking_status = "production_pending"
         order_product.save
      end
-   end
+   
     redirect_to admin_order_path(@order.id)
  end
 
@@ -30,7 +34,8 @@ puts "============="
   def order_params
     params.require(:order).permit(:status)
 
-  end 
+  end
+
 
   end
 
