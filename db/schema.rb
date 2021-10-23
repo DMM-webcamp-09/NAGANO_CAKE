@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_071542) do
     t.string "address"
     t.string "name"
     t.integer "postage"
-    t.integer "billing_amount"
+    t.integer "billing_amount" #支払い金額の総額
     t.integer "payment_method"
     t.integer "status"
     t.datetime "created_at", null: false
