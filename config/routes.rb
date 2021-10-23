@@ -25,6 +25,7 @@ namespace :admin do
 
 
 
+
   root 'member/homes#top'
 
   devise_for :member,skip: [:passwords,], controllers: {
@@ -40,8 +41,19 @@ namespace :admin do
     get 'members/unsubscribe'
     patch 'members/update'
     patch 'members/withdraw'
+    delete "cart_products/destroy_all" => "cart_products#destroy_all"
+    resources :cart_products, only: [:index, :create, :update, :destroy]
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
+
     resources :products, only: [:index, :show]
+
+    get "orders/new" => "orders#new"
+    post "orders/confirm" => "orders#confirm"
+    get "orders/complete" => "orders#complete"
+    resources :orders, only: [:index, :show, :create]
+
+
+
   end
 
 end
