@@ -33,7 +33,7 @@ namespace :admin do
     patch 'members/update'
     patch 'members/withdraw'
     delete "cart_products/destroy_all" => "cart_products#destroy_all"
-    resources :cart_products, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_products, only: [:index, :create, :update, :destroy]
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
     get "orders/new" => "orders#new"
     post "orders/confirm" => "orders#confirm"
