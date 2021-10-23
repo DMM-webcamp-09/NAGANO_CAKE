@@ -7,10 +7,8 @@ class Member::OrdersController < ApplicationController
 
   def confirm
     @cart_products = current_member.cart_products.page(params[:page]).per(4)
-  end
 
-  def create
-
+    # createから持ってきた
     member = current_member
 
   	# sessionを使ってデータを一時保存
@@ -54,42 +52,47 @@ class Member::OrdersController < ApplicationController
   	end
   	# お届け先情報に漏れがあればリダイレクト
   	if session[:order][:postal_code].presence && session[:order][:address].presence && session[:order][:name].presence
-  		redirect_to orders_confirm_path
+     #redirect_to
   	else
   		flash[:alert] = 'お届け先情報を入力してください'
-  		redirect_to new_order_path
+  		redirect_to orders_new_path
   	end
+
   end
 
-  def complete
-	order = Order.new(session[:order])
-	order.save
-	byebug
+  def create
+  	order = Order.new(session[:order])
+	  order.save
 
-	# 新しいお届け先を自動で保存
-	if session[:new_address]
-		address = current_member.shipping_addresses.new
-		address.postal_code = order.postal_code
-		address.address = order.address
-		address.name = order.name
-		address.save
-		session[:new_address] = nil
-	end
-	# 以下、order_detail(中間テーブル)作成
-	cart_products = current_member.cart_products
-	cart_products.each do |cart_product|
-	order_detail = OrderDetail.new
-	order_detail.order_id = order.id
-	order_detail.product_id = cart_product.product.id
-	order_detail.amount = cart_product.amount
-	order_detail.maiking_status = 0
-	order_detail.price = (cart_product.product.add_tax_price).floor
-	order_detail.save
-	end
-	session.delete(:order)
-	session[:order] = nil
-	# 購入後はカート内商品削除
-	cart_products.destroy_all
+		# 新しいお届け先を自動で保存
+		if session[:new_address]
+			address = current_member.shipping_addresses.new
+			address.postal_code = order.postal_code
+			address.address = order.address
+			address.name = order.name
+			address.save
+			session[:new_address] = nil
+		end
+		# 以下、order_detail(中間テーブル)作成
+		cart_products = current_member.cart_products
+		cart_products.each do |cart_product|
+		order_detail = OrderDetail.new
+		order_detail.order_id = order.id
+		order_detail.product_id = cart_product.product.id
+		order_detail.amount = cart_product.amount
+		order_detail.maiking_status = 0
+		order_detail.price = (cart_product.product.add_tax_price).floor
+		order_detail.save
+		end
+		session.delete(:order)
+		session[:order] = nil
+		# 購入後はカート内商品削除
+		cart_products.destroy_all
+		redirect_to orders_complete_path
+  end
+
+
+  def complete
   end
 
   def index

@@ -39,7 +39,7 @@ namespace :admin do
     post "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
     resources :orders, only: [:index, :show, :create]
-    
+
 
   end
 
