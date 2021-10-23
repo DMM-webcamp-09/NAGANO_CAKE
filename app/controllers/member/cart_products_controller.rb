@@ -8,16 +8,16 @@ class Member::CartProductsController < ApplicationController
     @cart_product.update(cart_product_params)
     redirect_to cart_products_path
   end
-
-  def destroy
-    @cart_product = CartProduct.find(params[:id])
-    @cart_product.destroy
+  
+  def destroy_all
+    cart_products = current_member.cart_products
+    cart_products.destroy_all
     redirect_to cart_products_path
   end
 
-  def destroy_all
-    @cart_products = current_member.cart_products
-    @cart_products.destroy_all
+  def destroy
+    cart_product = CartProduct.find(params[:id])
+    cart_product.destroy
     redirect_to cart_products_path
   end
 
