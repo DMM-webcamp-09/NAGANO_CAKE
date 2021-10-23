@@ -7,5 +7,7 @@ class Product < ApplicationRecord
 
 
 
-
+def self.search(keyword)
+  where(["name like? OR name like?", "%#{keyword}%", "%#{keyword}%"])
+end
 end

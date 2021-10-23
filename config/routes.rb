@@ -20,6 +20,7 @@ namespace :admin do
     resources :products
     resources :genres, only: [:index, :create, :edit, :update]
     resources :order_details, only: [:update]
+    get 'search' => 'products#search'
   end
 
 
