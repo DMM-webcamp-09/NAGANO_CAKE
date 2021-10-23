@@ -16,8 +16,8 @@ class Member::CartProductsController < ApplicationController
   end
 
   def destroy_all
-    @cart_products = current_member.cart_products
-    @cart_products.destroy_all
+    cart_products = current_member.cart_products
+    cart_products.destroy_all
     redirect_to cart_products_path
   end
 
