@@ -13,11 +13,11 @@ class Admin::OrdersController < ApplicationController
    @order = Order.find(params[:id])
    @order.update(order_params)
    @order_products = @order.order_details
-   if @order.status == "入金確認"
+   if @order.status == "payment_confirmation"
    puts "============="
 p @order.status
 puts "============="
-   if @order.status == "payment_confirmation"
+   elsif @order.status == "payment_confirmation"
       @order_products.each do |order_product|
         order_product.maiking_status = "production_pending"
         order_product.save
@@ -32,6 +32,5 @@ puts "============="
     params.require(:order).permit(:status)
   end
 
-   end
  end
 end
