@@ -45,12 +45,15 @@
                   <td>
                     <% @subtotal = tax_in * cart_product.amount %>
                     <%= @subtotal.to_s(:delimited) %>
+
+
                   </td>
                   <td>
                     <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class:"btn btn-danger btn-pdanger" %>
                   </td>
                 </tr>
                 <% @sum += @subtotal %>
+
               <% end %>
             </tbody>
           </table>

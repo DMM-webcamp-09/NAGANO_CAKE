@@ -13,7 +13,7 @@ class Admin::OrderDetailsController < ApplicationController
       @order_product.order.save
     end
     redirect_to admins_order_path(params[:order_id])
-  end
+ end
 
   private
 
