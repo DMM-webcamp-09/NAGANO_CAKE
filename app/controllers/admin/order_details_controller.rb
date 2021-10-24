@@ -12,7 +12,11 @@ class Admin::OrderDetailsController < ApplicationController
       @order_product.order.status = "preparing_delivery"
       @order_product.order.save
     end
+
     redirect_to admin_order_path(params[:id])
+
+   
+
  end
 
   private
