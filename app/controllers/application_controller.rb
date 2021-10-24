@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
        when Admin
            admin_members_path
        when Member
-           root_path
+           members_show_path(resource)
       end
   end
 

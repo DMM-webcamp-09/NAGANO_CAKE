@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+before_action :authenticate_admin!
 
 def index
   @genres = Genre.all
@@ -13,8 +14,6 @@ end
     else
       flash.now[:alert] = "ジャンル名を入力してください"
       redirect_to
-
-
     end
  end
 

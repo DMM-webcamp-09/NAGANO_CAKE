@@ -1,8 +1,9 @@
 class Admin::ProductsController < ApplicationController
-
+before_action :authenticate_admin!
 
  def index
   @products = Product.all
+  @products = Product.page(params[:page]).per(10)
  end
 
  def show
@@ -40,6 +41,14 @@ class Admin::ProductsController < ApplicationController
 
  def destroy
  end
+
+def search
+  @products = Product.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "search"
+end
+
+
   private
 
   def product_params

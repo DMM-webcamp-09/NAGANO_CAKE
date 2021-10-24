@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
-    belongs_to :customer
-    has_many :order_details, dependent: :destroy
+    has_many :order_details,dependent: :destroy
+
+    belongs_to :member
+
+    has_many :products,through: :order_details,source: :product
 
     enum payment_method: { credit_card:0, transfer:1 }
 
@@ -11,4 +14,5 @@ class Order < ApplicationRecord
         preparing_delivery:3,#発送準備中
         delivered:4 #発送済み
     }
+
 end
