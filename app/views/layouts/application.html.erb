@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
    <body>
@@ -21,19 +22,37 @@
             <% end %>
           </div>
         </div>
+          <div class="search-form">
+             <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :keyword, value: @keyword %>
+            <%= f.submit "検索" %>
+            <% end %>
+          </div>
+
       </nav>
     </header>
-    
+
     <main>
       <%= yield %>
+
     </main>
 
-    
+
     <footer class="footer">
-      <div class="navbar navbar-expand-lg navbar-light bg-secondary" style="height: 80px;">
-      <p class="text-white mx-auto ">Produce by Team <strong>しぇいかー</strong></p>
-      
+
+      <p class="text-white mx-auto ">Produce by Team しぇいかー</p>
+
       </div>
     </footer>
+  </body>
 
+
+  <div class="wrapper">
+    <footer>
+
+      <p class="footer-text">© Produce by Team しぇいかー</p>
+
+     </footer>
+    </div>
+   </body>
 </html>

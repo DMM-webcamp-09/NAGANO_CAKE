@@ -1,29 +1,35 @@
+<div class="container">
+  <div class="row">
 
-<body>
-　  <h1>index</h1>
-    <table>
-        <tbody>
-     <tr>
-      <th>ジャンル検索</th>
-     </tr>
-     <tr>
-         <th>ケーキ</th>
-     </tr>
-     <tr>
-         <th>焼き菓子</th>
-     </tr>
-     </tbody>
-    </table>
-     
-     <div class="row">
-     <div class="col-xs-3 each_item">
-     <h1 class="title">商品一覧</h1>
-       <p><a href="商品のURL"><img src="商品の画像"></a></p>
-	    <dl>
-    	<dt><a href="商品のURL">商品名</a></dt>
-        <dd>¥0,000</dd>
-        </dl>
-     </div>
-     </div>
+      <h4 class="mb-5 text-color col-3 text-center pt-4 rounded-pill">
+        商品一覧(全<%= @products.count %>件)
+      </h4>
+    <div class="col-8 product_index_image offset-1"></div>
 
-</body>     
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <%= link_to product_path(product.id) do %>
+            <%= attachment_image_tag product,:image, size:"255x210", fallback: "no_image.jpg" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= product.name %>
+            </h5>
+            <p class="card-text">
+              <% tax_in = product.price * 1.10 %>
+                ¥ <%= tax_in.round.to_s(:delimited) %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= paginate @products %>
