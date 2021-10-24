@@ -14,4 +14,5 @@ class Order < ApplicationRecord
         preparing_delivery:3,#発送準備中
         delivered:4 #発送済み
     }
+
 end
