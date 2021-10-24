@@ -43,7 +43,7 @@
                     <% end %>
                   </td>
                   <td>
-                    <% @subtotal = cart_product * cart_product.product.price %>
+                    <% @subtotal = tax_in * cart_product.amount %>
                     <%= @subtotal.to_s(:delimited) %>
                   </td>
                   <td>
