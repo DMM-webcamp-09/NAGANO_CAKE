@@ -15,9 +15,6 @@ class Admin::OrdersController < ApplicationController
 
  def update
    @order = Order.find(params[:id])
-    puts "============="
-    p @order.status
-    puts "============="
    @order.update(order_params)
    @order_products = @order.order_details
     puts "============="
@@ -27,17 +24,14 @@ class Admin::OrdersController < ApplicationController
       @order_products.each do |order_product|
         order_product.maiking_status = "production_pending"
         order_product.save
-     end
+   end
 
     redirect_to admin_order_path(@order.id)
    end
+ end
 
   private
-
       def order_params
         params.require(:order).permit(:status)
-
       end
-  end
-
 end
