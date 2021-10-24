@@ -9,4 +9,5 @@ class OrderDetail < ApplicationRecord
      in_production:2,#製作中
      production_complete:3#制作完了
  }
+
 end
