@@ -7,7 +7,7 @@
       <tbody>
         <tr>
           <th>購入者</th>
-          <td><%= link_to "#{@order.member.last_name} #{@order.member.first_name}", admin_member_path(@order.member.id), class: "text-dark border-bottom border-dark" %></td>
+          <td><%= link_to "#{@order.member.last_name} #{@order.member.first_name}", admin_members_path(@order.member.id), class: "text-dark border-bottom border-dark" %></td>
         </tr>
         <tr>
           <th>注文日</th>
@@ -24,8 +24,9 @@
         <tr>
           <th>注文ステータス</th>
           <td>
-            <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
-              <%= f.select :status, [["入金待ち","payment_waiting"], ["入金確認","payment_confirmation"], ["製作中","in_production"], ["発送準備中","preparing_delivery"], ["発送済み","delivered"]], class: "form-control" %>
+            <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+            <%= f.select :status, [["入金待ち","payment_waiting"], ["入金確認","payment_confirmation"], ["製作中","in_production"], ["発送準備中","preparing_delivery"], ["発送済み","delivered"]], class: "form-control" %>
+>>>>>>> origin/develop2
               <%= f.submit "更新", class: "btn ml-3 btn-dark btn-sm" %>
             <% end %>
           </td>
@@ -57,7 +58,7 @@
               <%= @products_price %>
             </td>
             <td>
-              <%= form_with model: order_product, url: admin_order_path(@order, order_product), local: true do |f| %>
+              <%= form_with model: @order_detail, url: admin_order_detail_path(@order, order_product), method: :patch, local: true do |f| %>
                 <%= f.select :maiking_status , [["着手不可", "production_not_possible"], ["製作待ち", "production_pending"], ["製作中", "in_production"], ["製作完了", "production_complete"]], class: "form-control" %>
                 <%= f.submit "更新", class: "btn ml-3 btn-dark btn-sm" %>
               <% end %>
