@@ -4,7 +4,7 @@
       <h2><span class="badge badge-secondary">商品一覧</span></h2>
       <%= link_to new_admin_product_path do %>
         <div class="text-right">
-          <button type="button" class="btn btn-light">  +  </button>
+          <button type="button" class="btn btn-light">  +  </button><%= link_to "新規登録" ,new_admin_product_path, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
@@ -39,5 +39,7 @@
      </tbody>
 
    </table>
+   <%= paginate @products %>
   </div>
+
  </div>

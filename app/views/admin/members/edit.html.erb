@@ -1,5 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="admin-heading col-12">
+        <h2 class="mb-4 pt-3 pb-3 text-center"><%= "#{@member.last_name}""#{@member.first_name}" %>様 会員情報編集</h2>
+      </div>
+      
        <div class="admin-customer-edit col-10 p-3">
-        <%= form_with model:@member, url: admin_member_path, local: true do |f| %>
+        <%= form_with model:@member, url: admin_member_path, method: :patch, local: true do |f| %>
         <table class="table table-borderless">
           <tbody>
             <tr>
@@ -16,7 +23,7 @@
             </tr>
             <tr>
               <th>郵便番号</th>
-              <td><%= f.text_field :postcode, class: "admin-member-editform pt-1 pb-1 rounded-pill" %></td>
+              <td><%= f.text_field :postal_code, class: "admin-member-editform pt-1 pb-1 rounded-pill" %></td>
             </tr>
             <tr>
               <th>住所</th>
@@ -33,10 +40,10 @@
             <tr>
               <th>会員ステータス</th>
               <td>
-                <%= f.radio_button :is_valid, :true %>
-                <%= f.label :is_valid, "有効", value: true, class: "mr-3" %>
-                <%= f.radio_button :is_valid, :false %>
-                <%= f.label :is_valid, "退会", value: false %>
+                <%= f.radio_button :is_deleted, :true %>
+                <%= f.label :is_deleted, "有効", value: true, class: "mr-3" %>
+                <%= f.radio_button :is_deleted, :false %>
+                <%= f.label :is_deleted, "退会", value: false %>
               </td>
             </tr>
             <tr>
@@ -48,4 +55,6 @@
           </tbody>
           <% end %>
           </div>
-          
+        </div>
+  　　</div>
+　　</div>

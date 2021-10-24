@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        
+
           <h4>マイページ</h4>
           <h4>登録情報　<%= link_to "編集する", members_edit_path, class: 'btn btn-success' %></h4>
       </div>
@@ -32,11 +32,11 @@
                   <th><%= @member.email %></th>
               </tr>
           </table>
-          
-      <div class="col-12">
-          <h4>配送先   <%= link_to "一覧を見る" %></h4>
 
-          <h4>注文履歴   <%= link_to "一覧を見る" %></h4>
+      <div class="col-12">
+          <h4>配送先   <%= link_to "一覧を見る", shipping_addresses_path %></h4>
+
+          <h4>注文履歴   <%= link_to "一覧を見る", orders_path %></h4>
 
       </div>
     </div>
