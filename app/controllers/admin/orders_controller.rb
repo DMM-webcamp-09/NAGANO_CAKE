@@ -27,17 +27,14 @@ puts "============="
      end
    
     redirect_to admin_order_path(@order.id)
- end
+   end
 
   private
 
   def order_params
     params.require(:order).permit(:status)
-
   end
-
-
-  end
+ end
 
 
 
