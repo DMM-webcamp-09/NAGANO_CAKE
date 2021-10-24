@@ -27,7 +27,7 @@ puts "============="
      end
    
     redirect_to admin_order_path(@order.id)
- end
+   end
 
   private
 
@@ -36,14 +36,5 @@ puts "============="
 
   end
 
-
-  end
-
-
-
- def order_details_params
-    params.require(:order_details).permit(:maiking_status)
- end 
-
-
+ end
 end
