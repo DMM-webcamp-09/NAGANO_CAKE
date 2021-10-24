@@ -14,23 +14,16 @@ class Admin::OrdersController < ApplicationController
    @order.update(order_params)
    @order_products = @order.order_details
    if @order.status == "payment_confirmation"
-   puts "============="
-p @order.status
-puts "============="
-
-   elsif @order.status == "payment_confirmation"
-
- 
-
       @order_products.each do |order_product|
         order_product.maiking_status = "production_pending"
         order_product.save
      end
-   
-    redirect_to admin_order_path(@order.id)
    end
 
-private
+    redirect_to admin_order_path(@order.id)
+ end
+
+  private
 
   def order_params
     params.require(:order).permit(:status)
@@ -38,13 +31,8 @@ private
 
 
 
-
-
-
  def order_details_params
     params.require(:order_details).permit(:maiking_status)
- end 
-
-
+ end
 
 end
