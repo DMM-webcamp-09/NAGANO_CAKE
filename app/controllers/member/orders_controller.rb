@@ -5,12 +5,8 @@ class Member::OrdersController < ApplicationController
     @addresses = @member.shipping_addresses
   end
 
-  def confirm
-    @cart_products = current_member.cart_products.page(params[:page]).per(4)
-
-    # createから持ってきた
-    member = current_member
-
+  def create
+  	member = current_member
   	# sessionを使ってデータを一時保存
   	session[:order] = Order.new
   	cart_products = current_member.cart_products
@@ -52,15 +48,19 @@ class Member::OrdersController < ApplicationController
   	end
   	# お届け先情報に漏れがあればリダイレクト
   	if session[:order][:postal_code].presence && session[:order][:address].presence && session[:order][:name].presence
-     #redirect_to
+      redirect_to orders_confirm_path
   	else
   		flash[:alert] = 'お届け先情報を入力してください'
   		redirect_to orders_new_path
   	end
-
   end
 
-  def create
+  def confirm
+    @cart_products = current_member.cart_products.page(params[:page]).per(4)
+  end
+
+
+  def complete
   	order = Order.new(session[:order])
 	  order.save
 
@@ -88,11 +88,6 @@ class Member::OrdersController < ApplicationController
 		session[:order] = nil
 		# 購入後はカート内商品削除
 		cart_products.destroy_all
-		redirect_to orders_complete_path
-  end
-
-
-  def complete
   end
 
   def index

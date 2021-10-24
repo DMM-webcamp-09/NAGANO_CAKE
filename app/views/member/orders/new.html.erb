@@ -1,10 +1,10 @@
 <div class="container mt-5">
  <%= flash[:alert] %>
  <div class="row mb-5">
-  <h3 class="under px-4 heading_background_color">注文情報入力</h3>
+  <h4 class="under p-2 heading_background_color">注文情報入力</h4>
  </div>
 </div>
-<%= form_with(model: @order, url: orders_confirm_path, method: :post, local:true) do |form| %>
+<%= form_with(url: orders_path, method: :post, local:true) do |form| %>
  <div class="container ">
    <div class="form-group row mt-4">
      <h5 class="col-sm-3"><strong>支払方法</strong></h5>
@@ -12,12 +12,12 @@
    <div class="form-group row ">
   			<!-- form.radio_button :カラム名, :保存される値(enumの番号) -->
         <h5 class="col-sm-3 mx-5">
-        <%= form.radio_button :payment_method, 0, checked: true %>
+        <%= form.radio_button :payment_method, 0 ,checked: true%>
         <%= form.label :payment_method_credit_card, 'クレジットカード' %>
         </h5>
         <h5 class="col-sm-3 mx-5">
         <%= form.radio_button :payment_method, 1 %>
-        <%= form.label :payment_method_bank_payment, '銀行払い' %>
+        <%= form.label :payment_method_transfer, '銀行払い' %>
         </h5>
    </div>
 
@@ -25,12 +25,12 @@
    <h5 class="col-sm-2 "><strong>お届け先</strong></h4>
  </div>
  <div class="form-group row mb-5">
-   <h5 class="col-sm-3 mx-5"><%= form.radio_button :a_method, 0, checked: "checked" %>
+   <h5 class="col-sm-3 mx-5"><%= form.radio_button :a_method, 0 ,checked: true %>
    <%= form.label :ご自身の住所 %></h5>
    <div class="col-sm-9"></div>
-   <h5 class=" offset-sm-1 col-sm-6">〒<%= @member.postal_code %>
+   <h6 class=" offset-sm-1 col-sm-6">〒<%= @member.postal_code %>
    <%= @member.address %></br>
-   <%= @member.full_name %></h5>
+   <%= @member.full_name %></h6>
  </div>
 
  <div class="form-group row mb-5">

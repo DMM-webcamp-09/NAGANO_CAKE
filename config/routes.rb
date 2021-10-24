@@ -48,6 +48,7 @@ namespace :admin do
     resources :products, only: [:index, :show]
 
     get "orders/new" => "orders#new"
+    get "orders/confirm" => "orders#confirm"
     post "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
     resources :orders, only: [:index, :show, :create]
