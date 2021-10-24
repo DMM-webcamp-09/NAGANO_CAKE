@@ -4,7 +4,7 @@
     <title>NAGANO CAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -36,17 +36,12 @@
       <%= yield %>
 
     </main>
-
+    
     <div class="wrapper">
-
-    <footer>
-      <p class="footer-text">© Produce by Team しぇいかー</p>
-     </footer>
+      <footer class="footer">
+        <p class="text-white mx-auto ">Produce by Team しぇいかー</p>
+      </footer>
     </div>
-
-    <footer class="footer">
-      <p class="text-white mx-auto ">Produce by Team しぇいかー</p>
-    </footer>
   </body>
 
 </html>
