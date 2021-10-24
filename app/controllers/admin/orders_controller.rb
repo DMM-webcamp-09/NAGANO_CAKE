@@ -1,9 +1,5 @@
 class Admin::OrdersController < ApplicationController
 
- before_action :authenticate_admin!
-
-
-
  def index
    @orders = Order.page(params[:page]).per(10).reverse_order
  end
@@ -17,17 +13,22 @@ class Admin::OrdersController < ApplicationController
    @order = Order.find(params[:id])
    @order.update(order_params)
    @order_products = @order.order_details
+   if @order.status == "payment_confirmation"
    puts "============="
 p @order.status
 puts "============="
- if @order.status == "payment_confirmation"
+
+   elsif @order.status == "payment_confirmation"
+
+ 
+
       @order_products.each do |order_product|
         order_product.maiking_status = "production_pending"
         order_product.save
      end
    
     redirect_to admin_order_path(@order.id)
- end
+   end
 
 private
 
@@ -36,13 +37,14 @@ private
   end
 
 
- end
+
 
 
 
  def order_details_params
     params.require(:order_details).permit(:maiking_status)
  end 
+
 
 
 end
