@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+
+      <h4 class="mb-5 text-color col-3 text-center p-2 heading_background_color">
+        商品一覧(全<%= @products.count %>件)
+      </h4>
+    <div class="col-8 product_index_image offset-1"></div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <%= link_to product_path(product.id) do %>
+            <%= attachment_image_tag product,:image, size:"255x210", fallback: "no_image.jpg" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= product.name %>
+            </h5>
+            <p class="card-text">
+              <% tax_in = product.price * 1.10 %>
+                ¥ <%= tax_in.round.to_s(:delimited) %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= paginate @products %>

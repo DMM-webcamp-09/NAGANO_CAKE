@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_132239) do
+
+
+
+ActiveRecord::Schema.define(version: 2021_10_20_071542) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,9 +54,9 @@ ActiveRecord::Schema.define(version: 2021_10_17_132239) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "customer_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_132239) do
     t.string "address"
     t.string "name"
     t.integer "postage"
-    t.integer "billing_amount"
+    t.integer "billing_amount" #支払い金額の総額
     t.integer "payment_method"
     t.integer "status"
     t.datetime "created_at", null: false
@@ -82,35 +85,24 @@ ActiveRecord::Schema.define(version: 2021_10_17_132239) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "genre_id"
-    t.string "name"
-    t.string "descript"
-    t.string "product_image_id"
-    t.integer "product_price"
+    t.integer "genre_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "sale_status"
+    t.boolean "is_active"
+    t.text "introduction", null: false
+    t.integer "price", null: false
+    t.string "image_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
     t.integer "member_id"
+    t.string "name"
     t.string "postal_code"
     t.string "address"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

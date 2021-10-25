@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NAGANO CAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
-    <%= yield %>
+   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg  mb-5">
+        <div class="container">
+          <h2><%= link_to 'NAGANO CAKE', root_path, class: 'nav-link text-dark logo' %></h2>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <% if request.fullpath.include?("admin") %>
+              <%= render "layouts/header_admin" %>
+            <% else %>
+              <%= render "layouts/header_member" %>
+            <% end %>
+          </div>
+        </div>
+          <div class="search-form">
+             <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :keyword, value: @keyword %>
+            <%= f.submit "検索" %>
+            <% end %>
+          </div>
+
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+
+    </main>
+
+    <footer class="footer">
+      <p class="text-white mx-auto ">Produce by Team しぇいかー</p>
+    </footer>
   </body>
+
 </html>
